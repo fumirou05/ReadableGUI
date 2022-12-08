@@ -8,6 +8,10 @@ def makeTextScroll(frame):
     scroll.pack(side=tk.RIGHT, fill="y")
     textBox.pack()
 
+    return textBox
+
+def getInputTextOutput(event):
+    outputBox.insert("1.0", inputBox.get("1.0", tk.END))
 
 # initialize
 # window set
@@ -22,7 +26,11 @@ tk.Label(headerFrame, text="Readable").pack(side=tk.LEFT)
 # inputTextFrame
 inputTextFrame = ttk.Frame(root, padding=10)
 inputTextFrame.pack()
-makeTextScroll(inputTextFrame)
+inputBox = makeTextScroll(inputTextFrame)
+
+# executeButton
+executeButton = ttk.Button(root, text="Execute")
+executeButton.pack()
 
 # bodyFrame
 bodyFrame = ttk.Frame(root, padding=10)
@@ -45,6 +53,12 @@ nextButton.pack()
 # outputBox
 outputTextFrame = ttk.Frame(root, padding=10)
 outputTextFrame.pack()
-makeTextScroll(outputTextFrame)
+outputBox = makeTextScroll(outputTextFrame)
+
+# Execute Button
+executeButton2 = ttk.Button(root, text="Execute")
+executeButton2.pack()
+executeButton2.bind("<Button-1>", getInputTextOutput)
 
 root.mainloop()
+
