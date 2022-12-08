@@ -1,1 +1,3 @@
 # ReadableGUI
+
+ReadableをDeepL無料版でも使いやすくするやつ
